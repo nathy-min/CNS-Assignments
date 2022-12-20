@@ -1,0 +1,32 @@
+
+<html>
+    <head>
+      <title>Encrypt and Decrypt using AES</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    </head>
+    <body>
+      <h1>Encrypt and Decrypt using AES</h1>
+      <h2>Please enter your message and press the button to encrypt or decrypt</h2>
+      <textarea id="message" rows="8" cols="50" placeholder="Enter your message here..."></textarea>
+      <br>
+      <input type="password" id="password" placeholder="Enter your Password here...">
+      <button onclick="encryptMessage()">Encrypt</button>
+      <button onclick="decryptMessage()">Decrypt</button>
+      <h2>Result</h2>
+      <textarea id="result" rows="8" cols="50" readonly></textarea>
+      <script>
+        function encryptMessage() {
+          var message = document.getElementById('message').value;
+          var password = document.getElementById('password').value;
+          var encryptedMessage = CryptoJS.AES.encrypt(message, password).toString();
+          document.getElementById('result').value = encryptedMessage;
+        }
+        function decryptMessage() {
+          var message = document.getElementById('message').value;
+          var password = document.getElementById('password').value;
+          var decryptedMessage = CryptoJS.AES.decrypt(message, password).toString(CryptoJS.enc.Utf8);
+          document.getElementById('result').value = decryptedMessage;
+        }
+      </script>
+    </body>
+  </html
